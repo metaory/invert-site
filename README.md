@@ -18,6 +18,10 @@ Chrome extension. Click the toolbar icon (or `Alt+I`) to toggle `filter: invert(
 
 Store listing and packaging: [.dev/store-launch/](.dev/store-launch/)
 
+## Privacy
+
+[Privacy policy](PRIVACY.md)
+
 ---
 
 ## License
