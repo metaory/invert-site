@@ -1,74 +1,53 @@
-# Privacy Policy — Code Copy
+# Privacy Policy — invert-site
 
-Last updated: June 8, 2026
+**Last updated:** June 25, 2026
 
 ## Summary
 
-Code Copy does not collect, sell, or transmit personal data or browsing history. The extension runs locally in your browser. Text is copied to your clipboard only when you click a code block or Alt-click an element.
+invert-site toggles CSS color inversion on the page you view when you click the toolbar icon or press Alt+I. The extension does not collect, store, or send personal information, browsing history, or page content to the developer or any third party.
 
-## Data We Store
+## Local storage
 
-The extension stores per-tab preferences on your device:
+No `chrome.storage` or other persistence. Invert state lives in `document.body.style.filter` until you reload, navigate away, or toggle off.
 
-| Data | Where | Purpose | Retention |
-|------|-------|---------|-----------|
-| Per-tab active/inactive state | `chrome.storage.session` | Remember whether copying is enabled on each tab for the current browser session | Cleared when you quit the browser |
+## When you use the extension
 
-This data never leaves your device and is not synced to your Google account.
+- You click the toolbar icon or press Alt+I. The extension sets or clears `filter: invert(1)` on `document.body`.
+- A badge dot on the toolbar icon shows while invert is on. That state is not saved.
+- No analytics or server communication.
 
-## Data We Do Not Collect
+## Where data goes
 
-Code Copy does not:
+Processing stays in your browser on the page you view. No backend server. No cloud sync.
 
-- Log or store the text you copy
-- Record URLs, page titles, or browsing history
-- Send data to any server
-- Use analytics, telemetry, or third-party services
-- Use cookies
+## Third-party services
 
-## How the Extension Uses Page Access
-
-Code Copy injects into a page only after you click the toolbar icon or press Alt+C on that tab. It can:
-
-- Detect clicks on `<code>` and `<pre>` elements
-- Copy visible text (`innerText`) to your clipboard when you choose to copy
-- Show on-page feedback (toast and highlight) after a copy
-
-The extension reads page content only in response to your clicks. It does not scan, index, or upload page content in the background.
-
-Local development URLs (`localhost`, `127.0.0.1`, `0.0.0.0`) are not supported.
+No analytics, ads, or third-party SDKs.
 
 ## Permissions
 
 | Permission | Why |
 |------------|-----|
-| `activeTab` | Inject copy handlers on the current tab after toolbar click or Alt+C |
-| `storage` | Save per-tab on/off state for the current browser session |
-| `scripting` | Inject bundled CSS and JS on user gesture |
-| `tabs` | Sync the toolbar icon when you switch tabs; clear state when a tab closes or navigates |
+| `activeTab` | Access the active tab on icon click or Alt+I to run the invert toggle |
+| `scripting` | Run `toggle.js` to set or clear `filter: invert(1)` on `document.body` |
 
-## Third-Party Services
+The extension does not read pages in the background. The on-page change is an inline `filter` on `body`.
 
-This extension does not use third-party services. The only network requests are for the extension’s own packaged assets (icons and fonts).
+## Your controls
 
-## Data Sharing
-
-We do not share any data with third parties. There is no data to share.
-
-## Your Controls
-
-- **Stop copying on a tab:** Click the toolbar icon to deactivate on that tab.
-- **Clear stored state:** Quit the browser (session storage is cleared automatically).
-- **Remove the extension:** Uninstall from `chrome://extensions` to remove all extension data.
+- **Turn invert off:** Click the toolbar icon or press Alt+I again.
+- **Clear state:** Reload the page or navigate away.
+- **Remove the extension:** Uninstall from `chrome://extensions`.
 
 ## Children
 
-Code Copy is not directed at children under 13 and does not knowingly collect information from anyone.
+invert-site is not directed at children under 13.
 
 ## Changes
 
-If this policy changes, the updated version will be published in this repository with a revised “Last updated” date.
+We update this policy when practices change. The date at the top changes with it. Continued use after an update means you accept the revised policy.
 
 ## Contact
 
-Privacy questions: [metaory@gmail.com](mailto:metaory@gmail.com)
+Privacy: [metaory@gmail.com](mailto:metaory@gmail.com)  
+Project: https://github.com/metaory/invert-site
