@@ -1,18 +1,36 @@
 <div align="center">
   <img src="icons/icon128.png" width="96" height="96" alt="logo">
   <h1>Invert Site</h1>
-  <p><strong>Invert any page instantly.</strong> Click the icon or press <kbd>Alt</kbd>+<kbd>I</kbd>.</p>
-  <p>Per-tab toggle. Badge when on. No popup. Resets on reload.</p>
+  <p><strong>Minimal, on-demand invert. One filter, one tab, one moment.</strong></p>
+  <p>Press <kbd>Alt</kbd>+<kbd>I</kbd> or click the toolbar icon. Per-tab. Badge when on. Resets on reload.</p>
 </div>
 
 ---
 
-Chrome extension. Click the toolbar icon (or `Alt+I`) to toggle `filter: invert(1)` on the current page. Click again to revert. Nothing persists across reload.
+On-demand Chrome extension for pesky light-only sites with no built-in dark mode. Not an always-on dark theme.
+
+## How it works
+
+Most dark-mode extensions rewrite styles, inject themes, or walk the DOM. That work runs on the main thread and costs CPU on every pass. We take the minimal route instead.
+
+Invert Site applies `filter: invert(1)` to the root `<html>` element in one shot. You see the result immediately. Toggle off removes the filter. No background service, no persistent mutation, no always-on processing.
+
+That trade is deliberate. Inversion is not a perfect dark theme. Photos and brand colors can look wrong. Some layouts break. Most readable text-heavy pages look fine. Use your eyes and turn it off when it does not.
+
+## On demand, not always on
+
+Do not keep this enabled all the time. Install it, leave it idle, and flip it on only when you land on a bright site that refuses dark mode: articles, docs, dashboards. Hit `Alt+I` or the toolbar icon, read, hit it again when you leave. Per-tab, per-visit. That is the whole model.
 
 ## Install
 
-1. `chrome://extensions` → Developer mode → Load unpacked → this repo
-2. Open a normal page and click the icon
+**Chrome Web Store:** `[link pending — publish TBD]`
+
+**Load unpacked (development):**
+
+1. Open `chrome://extensions`
+2. Enable Developer mode
+3. Load unpacked → select this repo
+4. Open a page and press `Alt+I` or click the icon
 
 ## Publish
 
