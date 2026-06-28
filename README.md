@@ -1,6 +1,7 @@
 <div align="center">
   <img src="icons/icon128.png" width="96" height="96" alt="logo">
   <h1>Invert Site</h1>
+  <img src="assets/small-promo-lg.png" alt="promo">>
   <p><strong>Minimal, on-demand invert. One filter, one tab, one moment.</strong></p>
   <p>Press <kbd>Alt</kbd>+<kbd>I</kbd> or click the toolbar icon. Per-tab. Badge when on. Resets on reload.</p>
 </div>
