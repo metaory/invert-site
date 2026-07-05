@@ -1,12 +1,16 @@
-const toggle = async (tabId) => {
-  const [r] = await chrome.scripting.executeScript({ target: { tabId }, files: ['toggle.js'] });
-  chrome.action.setBadgeText({ tabId, text: r?.result ? '●' : '' });
-};
+const injectable = (url) => /^https?:/.test(url ?? '');
+const badge = (id, on) => chrome.action.setBadgeText({ tabId: id, text: on ? '●' : '' });
+const script = (id) => chrome.scripting.executeScript({ target: { tabId: id }, files: ['toggle.js'] });
+const activeTab = () => chrome.tabs.query({ active: true, currentWindow: true }).then(([t]) => t);
 
-chrome.action.onClicked.addListener(({ id }) => toggle(id));
+const inverted = (tab) =>
+  tab?.id && injectable(tab.url)
+    ? script(tab.id).then(([r]) => !!r?.result).catch(() => false)
+    : Promise.resolve(false);
 
-chrome.commands.onCommand.addListener(async (cmd) => {
-  if (cmd !== 'toggle') return;
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  tab?.id && toggle(tab.id);
-});
+const toggle = async (tab) => tab?.id && badge(tab.id, await inverted(tab));
+
+[
+  [chrome.action.onClicked, toggle],
+  [chrome.commands.onCommand, (cmd) => cmd === 'toggle' && activeTab().then(toggle)],
+].map(([on, fn]) => on.addListener(fn));
