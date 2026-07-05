@@ -1,7 +1,7 @@
 <div align="center">
   <img src="icons/icon128.png" width="96" height="96" alt="logo">
   <h1>Invert Site</h1>
-  <img src="assets/small-promo-lg.png" alt="promo">
+  <img src="assets/promo-small.png" alt="promo">
   <p><strong>Off by default. One click when a site ignores dark mode.</strong></p>
   <p>Alt+I or the toolbar icon. No stored state.</p>
 </div>
@@ -15,7 +15,7 @@ Chrome dark mode covers most pages. Invert Site stays off and lets it. Some site
 <a href="https://chromewebstore.google.com/detail/invert-site/hnnilolmcicknmmpkccoflolnopdgkgf">
   <b>Install</b>
   <br>
-  <img src="https://developer.chrome.com/static/docs/webstore/branding/image/tbyBjqi7Zu733AAKA5n4.png" alt="Available in the Chrome Web Store" width="260">
+  <img src="assets/chrome-web-store.png" alt="Available in the Chrome Web Store">
 </a>
 
 </div>
